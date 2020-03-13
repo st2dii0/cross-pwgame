@@ -25,7 +25,7 @@ const AskNickname = ({ io }) => {
         <span>Login</span>
         </a>: 
         <a className="button is-info">
-          <span>Waiting for oppenent...</span>
+          <span>Waiting for opponent...</span>
         </a>
       }
       </div>

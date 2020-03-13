@@ -20,8 +20,11 @@ const App = () => {
     setGameStarted(true);
   });
 
-  io.on("event::gameOver", ()=>{
-    console.log("Game over");
+  io.on("event::gameFull", () => {
+    console.log("The game is complet");
+  });
+
+  io.on("event::winnable", payload => {
     setGameOver(true);
   })
 
@@ -38,15 +41,16 @@ const App = () => {
           </div>
         </div>
       </div>
-
+      
       <div className="hero-body">
         <div className="container">
           <header className="bd-index-header">
-            {!gameStarted ? <AskNickname io={io} /> : <MagicNumber />}
+            {!gameStarted ? <AskNickname io={io}/> : <MagicNumber io={io}/>
+            }
           </header>
         </div>
-      </div>
 
+      </div>
       <div className="hero-foot">
         <div className="container">
           <div className="tabs is-centered">
